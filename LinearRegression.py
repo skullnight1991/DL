@@ -7,13 +7,7 @@ data = pd.read_csv('Advertising.csv').values
 x = np.array(data[:, 2])
 y = np.array(data[:, 4])
 
-def forward(x):
-	return x * w
-
-def loss(x, y):
-	y_pred = forward(x)
-	return (y_pred - y) * (y_pred - y)
-
+# Make two list to stores lost values and weight values
 l_list = []
 w_list = []
 w = 0
@@ -35,9 +29,11 @@ print('%s %f' % ('Min loss=',l_func.min()))
 print(w_list)
 #print(l_list)
 
+# Find the min and max index of data values
 minIndex = np.argmin(x)
 maxIndex = np.argmax(x)
 
+# Plot
 pred = np.dot(x, w)
 plt.plot(w_list, l_list)
 #plt.scatter(x,y)
